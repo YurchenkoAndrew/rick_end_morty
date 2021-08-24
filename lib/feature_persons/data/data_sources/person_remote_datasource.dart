@@ -19,14 +19,17 @@ class PersonRemoteDataSourceImpl implements PersonRemoteDataSource {
 
   PersonRemoteDataSourceImpl({required this.client});
 
+  // Метод получения персонажей
   @override
   Future<List<PersonModel>> getAllPersons(int page) => _getPersonsFromUrl(
       'https://rickandmortyapi.com/api/character/?page=$page');
 
+  // Метод поиска персонажей
   @override
   Future<List<PersonModel>> searchPersons(String query) => _getPersonsFromUrl(
       'https://rickandmortyapi.com/api/character/?page=2&name=$query');
 
+// Общий метод для связи с адресом бекенда
   Future<List<PersonModel>> _getPersonsFromUrl(String url) async {
     final response = await client.get(
       Uri.parse(url),
