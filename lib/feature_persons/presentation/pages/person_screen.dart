@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rick_end_morty/feature_persons/presentation/widgets/custom_search_delegate.dart';
 import 'package:rick_end_morty/feature_persons/presentation/widgets/persons_list_widget.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,7 +14,9 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              showSearch(context: context, delegate: CustomSearchDelegate());
+            },
             icon: Icon(Icons.search),
             color: Colors.white,
           ),
